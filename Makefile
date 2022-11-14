@@ -1,6 +1,6 @@
 all:
 	@sed -i "s/localhost/sobouatt.42.fr/g" /etc/hosts
-	@mkdir -p /home/kiwi/databases/DB /home/kiwi/databases/WordPress
+	@mkdir -p /home/sobouatt/data/DB /home/sobouatt/data/WordPress
 	@docker-compose -f srcs/docker-compose.yml -p inception up --build
 
 clean:
@@ -16,8 +16,8 @@ fclean: clean
 	@docker rm -f inception:wordpress
 	@docker rm -f inception:nginx
 	@docker rm -f inception:mariadb
-	@rm -rf /home/kiwi/databases/DB
-	@rm -rf /home/kiwi/databases/WordPress
+	@rm -rf /home/sobouatt/data/DB
+	@rm -rf /home/sobouatt/data/WordPress
 	@-docker network rm inception_network
 	@-docker volume rm -f inception_DB
 	@-docker volume rm -f inception_WordPress

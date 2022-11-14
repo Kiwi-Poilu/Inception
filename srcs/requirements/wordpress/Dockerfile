@@ -2,9 +2,9 @@ FROM debian:buster
 
 WORKDIR /var/www/html
 
-COPY ./conf/wp-config.php /tmp
+COPY ./conf/wp-config.php /tmp/
 
-COPY ./tools/script.sh /tmp
+COPY ./tools/script.sh /tmp/
 
 RUN apt-get update && apt-get install -y curl mariadb-client php7.3 php7.3-fpm php7.3-mysql php7.3-readline php-common
 

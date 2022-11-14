@@ -1,8 +1,8 @@
 FROM debian:buster
 
-ARG NAME
-ARG USER
-ARG ROOT
+ARG DBNAME
+ARG DBUSER
+ARG DBROOT
 ARG PASSUSER
 ARG PASSROOT
 
@@ -22,13 +22,13 @@ RUN touch config.sql
 
 RUN echo "flush privileges;" >> config.sql 
 
-RUN echo "create database $NAME;" >> config.sql
+RUN echo "create database $DBNAME;" >> config.sql
 
-RUN echo "grant all on $NAME.* to '$USER'@'%' identified by '$PASSUSER';" >> config.sql
+RUN echo "grant all on $DBNAME.* to '$DBUSER'@'%' identified by '$PASSUSER';" >> config.sql
 
-RUN echo "grant all on *.* to '$ROOT'@'%' identified by '$PASSROOT' with grant option;" >> config.sql
+RUN echo "grant all on *.* to '$DBROOT'@'%' identified by '$PASSROOT' with grant option;" >> config.sql
 
-RUN echo "grant all on *.* to $ROOT@localhost identified by '$PASSROOT' with grant option;" >> config.sql
+RUN echo "grant all on *.* to $DBROOT@localhost identified by '$PASSROOT' with grant option;" >> config.sql
 
 RUN chmod 755 config.sql
 

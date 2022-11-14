@@ -8,13 +8,13 @@ volumes:
     driver: local
     driver_opts: 
       type: none
-      device: /home/kiwi/databases/DB
+      device: /home/sobouatt/data/DB
       o: bind
   WordPress:
     driver: local
     driver_opts:
       type: none
-      device: /home/kiwi/databases/WordPress
+      device: /home/sobouatt/data/WordPress
       o: bind
 services:
   mariadb:
@@ -24,9 +24,9 @@ services:
     build:
       context: ./requirements/mariadb
       args:
-        - NAME=$NAME
-        - USER=$USER
-        - ROOT=$ROOT
+        - DBNAME=$DBNAME
+        - DBUSER=$DBUSER
+        - DBROOT=$DBROOT
         - PASSUSER=$PASSUSER
         - PASSROOT=$PASSROOT
     volumes:

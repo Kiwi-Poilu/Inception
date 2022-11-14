@@ -9,7 +9,7 @@
 
 /* Database connection */
 define( 'DB_NAME',      'DBNAME' );
-define( 'DB_USER',      'ROOT' );
+define( 'DB_USER',      'DBROOT' );
 define( 'DB_PASSWORD',  'PASSROOT' );
 define( 'DB_HOST',      'mariadb' );
 define( 'DB_CHARSET',   'utf8mb4' );
